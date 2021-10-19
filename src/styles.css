@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #f5eeee;
+}
+.navbar {
+  background-color: #171313;
+}
+.button {
+  background-color: #af05aa;
+  color: #f5eeee;
+}
+.icon {
+  color: #ea21a2;
+}
+.card {
+  border-radius: 20px;
+}
+.card:hover {
+  box-shadow: 0 0 2px 1px #ebbddc;
+  transform: scale(1.02);
+}

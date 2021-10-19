@@ -1,1 +1,23 @@
-<p>product works!</p>
+<div class="card">
+  <img
+    src="../assets/images/image{{ item.id }}.png"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">
+      {{ item.description }}
+    </p>
+    <hr />
+    <div class="row mb-4">
+      <div class="col mx-1 price">
+        <strong>{{ item.price | currency }}</strong>
+      </div>
+      <div class="col units">
+        x <span>{{ item.packaging }} units</span>
+      </div>
+    </div>
+    <a href="#" class="btn button">ADD TO CAR</a>
+  </div>
+</div>
