@@ -9,6 +9,9 @@ export class CartService {
   constructor(public ProductService: ProductService) {}
 
   getSessionCart(cart: any[]) {
+    if (sessionStorage.getItem(this.sesionCartName) == null) {
+      this.saveSessionStorage(cart);
+    }
     return sessionStorage.getItem(this.sesionCartName);
   }
 

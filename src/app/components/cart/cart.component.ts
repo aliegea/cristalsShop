@@ -26,8 +26,8 @@ export class CartComponent implements OnInit {
     this.ProductService.getProduct().subscribe((product: any) => {
       this.itemToCart(product);
     });
+    this.loadCartItems();
     this.CartService.saveSessionStorage(this.cartItems);
-    console.log(this.cartItems);
   }
   itemToCart(product: Product) {
     let productExists = false;
@@ -52,8 +52,6 @@ export class CartComponent implements OnInit {
       newcartItem.total = this.getItemTotal(newcartItem.price, newcartItem.qty);
 
       this.cartItems.push(newcartItem);
-
-      console.log(newcartItem);
     }
 
     this.cartTotal = 0;
@@ -61,7 +59,7 @@ export class CartComponent implements OnInit {
     this.cartItems.forEach((item: CartItem) => {
       this.cartTotal += item.qty * item.price;
     });
-    console.log(this.cartTotal);
+
     this.CartService.saveSessionStorage(this.cartItems);
   }
 
@@ -69,7 +67,6 @@ export class CartComponent implements OnInit {
     return qty * price;
   }
   loadCartItems() {
-    // this.cartItems = this.cart;
     this.cartItems = this.cart;
 
     this.getCarTotal(this.cartItems);
@@ -101,8 +98,12 @@ export class CartComponent implements OnInit {
     this.CartService.saveSessionStorage(this.cartItems);
   }
   removeItem(itemToRemove: any) {
-    this.cartItems.splice(itemToRemove, 1);
-
+    for (let i = 0; i < this.cartItems.length; i++) {
+      if (this.cartItems[i] == itemToRemove) {
+        this.cartItems.splice(i, 1);
+        console.log(itemToRemove);
+      }
+    }
     this.cartTotal = 0;
 
     this.cartItems.forEach((item: CartItem) => {

@@ -1,6 +1,25 @@
 <div class="cart-item">
   <span>{{ cartItem.name }}</span>
   <span>{{ cartItem.price | currency }}</span> x
+  <span class="item-quantity">
+    <input
+      type="number"
+      id="quantity"
+      value="{{ cartItem.qty }}"
+      min="0"
+      [(ngModel)]="cartItem.qty"
+      (ngModelChange)="sendItemQuantity(cartItem.qty)"
+  /></span>
   <span>{{ cartItem.qty }}units</span>:
-  <strong>Total: {{ cartItem.total | currency }}</strong>
+  <strong>Total: {{ cartItem.price * cartItem.qty | currency }}</strong>
+  <span class="item-removal">
+    <button class="btn btn-xs" (click)="sendItemToRemove(cartItem)">
+      <fa-icon
+        class="trashIcon"
+        [icon]="faTrashAlt"
+        title="remove"
+        role="button"
+      ></fa-icon>
+    </button>
+  </span>
 </div>
