@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center">
-  <div class="dropdown">
+  <div class="dropdown" data-bs-display="static">
     <a
       class="nav-link shopping-cart-icon"
       id="cartBasket"
@@ -18,8 +18,11 @@
         >{{ cartItems.length }}</span
       >
     </a>
-    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cartBasket">
-      <div class="card cart" style="width: 20rem">
+    <div
+      class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start cart-box"
+      aria-labelledby="cartBasket"
+    >
+      <div class="card cart" style="width: 21rem">
         <ng-container
           *ngIf="cartItems.length > 0; else emptyCartTemplate"
         ></ng-container>

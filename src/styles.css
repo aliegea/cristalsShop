@@ -14,20 +14,22 @@ body {
   margin-left: -20px;
 }
 .icon {
-  color: #ea21a2;
+  color: #f5eeee;
 }
+
 .counter {
   position: absolute;
-  color: black;
+  color: #fff;
   font-size: small;
   top: -2px;
   right: 26px;
   width: 14px;
   height: 15px;
   border-radius: 50%;
-  background: linear-gradient(#fff 0%, #f5eeee 80%, #ea21a2 100%);
+  background: #ea21a2;
   padding: 0.6rem;
 }
+
 .total {
   background-color: white;
   padding: 0.5em;
@@ -63,17 +65,18 @@ hr {
   max-width: 15%;
   margin: 0 0.5em 0 0;
 }
-
-.card {
-  border-radius: 20px;
-  background-color: #f5eeee;
-}
-
-.cart {
-  background-color: hsla(0, 10%, 8%, 0.4);
+.cart-box {
   position: absolute;
-  right: 40px;
-  padding: 1em;
+  margin: 0;
+  padding: 0;
+
+  background-color: hsla(0, 4%, 52%, 0.4);
+  border-radius: 20px;
+}
+.cart {
+  background-color: hsla(0, 10%, 8%, 0.8);
+  margin: 0;
+  padding: 10px;
   border-radius: 20px;
 }
 .card:hover {
@@ -142,4 +145,10 @@ hr {
 .cart {
   margin: 1em;
   border: none;
+}
+@media screen and (max-width: 600px) {
+  .cart {
+    max-width: 90vw;
+    font-size: x-small;
+  }
 }
