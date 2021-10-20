@@ -4,4 +4,5 @@ export class CartItem {
   img!: string;
   price!: number;
   qty!: number;
+  total!: number;
 }

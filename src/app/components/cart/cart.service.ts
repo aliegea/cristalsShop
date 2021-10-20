@@ -1,9 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from "@angular/core";
+import { ProductService } from "../products/product.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CartService {
+  sesionCartName: any = "crystalShop";
+  constructor(public ProductService: ProductService) {}
 
-  constructor() { }
+  getSessionCart(cart: any[]) {
+    return sessionStorage.getItem(this.sesionCartName);
+  }
+
+  saveSessionStorage(cart: any) {
+    sessionStorage.setItem(this.sesionCartName, JSON.stringify(cart));
+  }
 }

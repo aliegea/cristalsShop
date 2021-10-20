@@ -1,4 +1,6 @@
 <div class="cart-item">
-  <span>Melon</span> x <span>2</span>:
-  <strong>150 eur</strong>
+  <span>{{ cartItem.name }}</span>
+  <span>{{ cartItem.price | currency }}</span> x
+  <span>{{ cartItem.qty }}units</span>:
+  <strong>Total: {{ cartItem.total | currency }}</strong>
 </div>

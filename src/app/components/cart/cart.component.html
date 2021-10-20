@@ -20,41 +20,38 @@
           justify-content-center
           newQuantity2
         "
-        >2</span
-      >
+      ></span>
     </a>
     <div
       class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
       aria-labelledby="cartBasket"
     >
-      <div class="shopping-cart">
-        <!-- <ng-container *ngIf="cartItems.length > 0; else emptyCartTemplate"></ng-container> -->
-        <div class="shopping-cart-header">
-          <div class="shopping-cart-total">
-            <span class="p-r-05">Total:</span>
-            <span class="text-highlight total">150 €</span>
+      <div class="card" style="width: 16rem">
+        <ng-container
+          *ngIf="cartItems.length > 0; else emptyCartTemplate"
+        ></ng-container>
+        <div class="cart-header">
+          <div class="card-title">
+            <span>Total: </span>
+            <span>{{ cartTotal | currency }}</span>
           </div>
         </div>
-        <!-- /.shopping-cart-header -->
-        <ul class="shopping-cart-items">
-          <li>
-            <app-cart-item></app-cart-item>
-          </li>
-        </ul>
+        <div class="card-text">
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let item of cartItems" class="list-group-item">
+              <app-cart-item [cartItem]="item"></app-cart-item>
+            </li>
+          </ul>
 
-        <!-- /.shopping-cart-items -->
+          <div>
+            <button class="myButton">Checkout</button>
+          </div>
 
-        <div class="shopping-cart-buttons">
-          <button class="btn btn-block btn-erp-blue text-erp-white">
-            Checkout
-          </button>
+          <ng-template #emptyCartTemplate>
+            <div class="text-center text-bold">Cart is empty</div>
+          </ng-template>
         </div>
-
-        <ng-template #emptyCartTemplate>
-          <div class="text-center text-bold">Cart is empty</div>
-        </ng-template>
       </div>
-      <!-- /.shopping-cart -->
     </div>
   </div>
 </div>
