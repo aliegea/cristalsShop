@@ -10,12 +10,12 @@
       {{ item.description }}
     </p>
     <hr />
-    <div class="row mb-4">
-      <div class="col mx-1 price">
-        <strong>{{ item.price | currency }}</strong>
+    <div class="row mb-4 text-center">
+      <div class="col mx-1">
+        <strong>{{ item.price | currency: "EUR" }}</strong>
       </div>
-      <div class="col units">
-        x <span>{{ item.packaging }} units</span>
+      <div class="col">
+        <span class="units">Pack of {{ item.packaging }} pcs.</span>
       </div>
     </div>
     <ul class="m-0 p-0">

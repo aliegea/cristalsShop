@@ -9,31 +9,25 @@
       aria-expanded="false"
       href=""
     >
-      <fa-icon [icon]="faShoppingCart" size="lg" class="icon"></fa-icon>
+      <fa-icon [icon]="faShoppingCart" size="2x" class="icon"></fa-icon>
 
       <span
+        *ngIf="cartItems.length > 0"
         id="counter"
-        class="
-          shopping-cart-counter
-          d-flex
-          align-items-center
-          justify-content-center
-          newQuantity2
-        "
-      ></span>
+        class="counter d-flex align-items-center justify-content-center"
+        >{{ cartItems.length }}</span
+      >
     </a>
-    <div
-      class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
-      aria-labelledby="cartBasket"
-    >
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cartBasket">
       <div class="card cart" style="width: 20rem">
         <ng-container
           *ngIf="cartItems.length > 0; else emptyCartTemplate"
         ></ng-container>
         <div class="cart-header">
-          <div class="card-title">
+          <div class="card-title total">
             <span>Total: </span>
-            <span>{{ cartTotal | currency }}</span>
+            <span>{{ cartTotal | currency: "EUR" }}</span>
+            <hr />
           </div>
         </div>
         <div class="card-text">

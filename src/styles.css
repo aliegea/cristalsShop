@@ -8,10 +8,72 @@ body {
   background-color: #af05aa;
   color: #f5eeee;
 }
+.units {
+  font-weight: bold;
+  color: hsl(300, 6%, 38%);
+  margin-left: -20px;
+}
 .icon {
   color: #ea21a2;
 }
+.counter {
+  position: absolute;
+  color: black;
+  font-size: small;
+  top: -2px;
+  right: 26px;
+  width: 14px;
+  height: 15px;
+  border-radius: 50%;
+  background: linear-gradient(#fff 0%, #f5eeee 80%, #ea21a2 100%);
+  padding: 0.6rem;
+}
+.total {
+  background-color: white;
+  padding: 0.5em;
+  margin: -5px;
+}
+.cart-header {
+  color: #af05aa;
+  font-size: large;
+  margin: 0;
+  text-align: end;
+  padding: 0.2em;
+}
+hr {
+  color: #af05aa;
+}
+.trashIcon {
+  color: rgb(190, 9, 24);
+  margin-left: 0.3em;
+}
+.trashIcon:hover {
+  color: rgb(163, 45, 54);
+}
+.itemName {
+  color: #171313;
+  font-weight: bold;
+  margin: 0 0 -15px 0;
+}
+.qtyInput {
+  max-width: 20%;
+  margin: 0 0.5em 0 0;
+}
+.price {
+  max-width: 15%;
+  margin: 0 0.5em 0 0;
+}
+
 .card {
+  border-radius: 20px;
+  background-color: #f5eeee;
+}
+
+.cart {
+  background-color: hsla(0, 10%, 8%, 0.4);
+  position: absolute;
+  right: 40px;
+  padding: 1em;
   border-radius: 20px;
 }
 .card:hover {
