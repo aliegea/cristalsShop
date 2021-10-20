@@ -11,7 +11,7 @@ import { CartItem } from "src/app/Models/cart-item";
 export class CartItemComponent implements OnInit {
   @Input() cartItem!: CartItem;
   @Output() UpdateQuantity = new EventEmitter<number>();
-  @Output() removeAction = new EventEmitter<CartItem>();
+  @Output() remove = new EventEmitter<CartItem>();
 
   constructor(private CartService: CartService) {}
   faTrashAlt = faTrashAlt;
@@ -22,6 +22,6 @@ export class CartItemComponent implements OnInit {
   }
 
   sendItemToRemove(value: CartItem) {
-    this.removeAction.emit(value);
+    this.remove.emit(value);
   }
 }

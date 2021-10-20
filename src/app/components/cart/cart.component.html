@@ -26,7 +26,7 @@
       class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
       aria-labelledby="cartBasket"
     >
-      <div class="card" style="width: 16rem">
+      <div class="card cart" style="width: 20rem">
         <ng-container
           *ngIf="cartItems.length > 0; else emptyCartTemplate"
         ></ng-container>
@@ -39,11 +39,15 @@
         <div class="card-text">
           <ul class="list-group list-group-flush">
             <li *ngFor="let item of cartItems" class="list-group-item">
-              <app-cart-item [cartItem]="item"></app-cart-item>
+              <app-cart-item
+                [cartItem]="item"
+                (remove)="removeItem($event)"
+                (UpdateQuantity)="upDateQty($event)"
+              ></app-cart-item>
             </li>
           </ul>
 
-          <div>
+          <div class="text-center">
             <button class="myButton">Checkout</button>
           </div>
 

@@ -33,8 +33,8 @@ export class CartComponent implements OnInit {
     let productExists = false;
 
     for (let i in this.cartItems) {
-      if (this.cartItems[i].productId === product.id) {
-        this.cartItems[i].quantity++;
+      if (this.cartItems[i].id === product.id) {
+        this.cartItems[i].qty++;
 
         productExists = true;
 
@@ -70,12 +70,44 @@ export class CartComponent implements OnInit {
   }
   loadCartItems() {
     // this.cartItems = this.cart;
+    this.cartItems = this.cart;
+
     this.getCarTotal(this.cartItems);
+  }
+  get cart() {
+    return JSON.parse(this.CartService.getSessionCart(this.cartItems) || "[]");
   }
 
   getCarTotal(cart: any) {
     cart.forEach((item: CartItem) => {
       this.cartTotal += item.qty * item.price;
     });
+  }
+  upDateQty(qty: number) {
+    this.cartTotal = 0;
+
+    for (let item of this.cartItems) {
+      if (item.qty != qty) {
+        break;
+      } else {
+        item.qty = qty;
+      }
+    }
+
+    this.cartItems.forEach((item: CartItem) => {
+      this.cartTotal += item.qty * item.price;
+    });
+
+    this.CartService.saveSessionStorage(this.cartItems);
+  }
+  removeItem(itemToRemove: any) {
+    this.cartItems.splice(itemToRemove, 1);
+
+    this.cartTotal = 0;
+
+    this.cartItems.forEach((item: CartItem) => {
+      this.cartTotal += item.qty * item.price;
+    });
+    this.CartService.saveSessionStorage(this.cartItems);
   }
 }
